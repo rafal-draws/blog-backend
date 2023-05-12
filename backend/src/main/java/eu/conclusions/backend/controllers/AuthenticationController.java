@@ -1,5 +1,6 @@
 package eu.conclusions.backend.controllers;
 
+import eu.conclusions.backend.dto.LoginRequest;
 import eu.conclusions.backend.dto.RegisterRequest;
 import eu.conclusions.backend.services.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,11 @@ public class AuthenticationController {
     public ResponseEntity signup(@RequestBody RegisterRequest registerRequest){
         authService.signup(registerRequest);
         return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @PostMapping("/login")
+    public void login(@RequestBody LoginRequest loginRequest){
+        authService.login(loginRequest);
     }
 
 }

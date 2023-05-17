@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+    <title>Conclusions</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}" />
+</head>
+
+<body>
+
+<p th:text="'Time on server is' + ${theDate}" />
+
+<h3>posts:</h3>
+
+<div class="posts">
+    <div th:each="tempBlogPost : ${blogPosts}">
+        <div th:text="${tempBlogPost.title}" />
+        <div th:text="${tempBlogPost.content}">
+        </div>
+
+
+
+    </div>
+
+
+</div>
+
+</body>
+
+</html>

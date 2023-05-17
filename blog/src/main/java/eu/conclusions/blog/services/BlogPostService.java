@@ -10,6 +10,10 @@ public interface BlogPostService {
 
     List<BlogPost> findAll();
 
+    List<BlogPost> findAllEn();
+
+    List<BlogPost> findAllPl();
+
     BlogPost findById(Long id);
 
     void save(BlogPost blogPost);

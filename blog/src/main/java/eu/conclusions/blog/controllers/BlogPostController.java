@@ -6,12 +6,18 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+
 import java.util.List;
 
 @Controller
 public class BlogPostController {
 
     private BlogPostService blogPostService;
+    private static final Logger logger = LoggerFactory.getLogger(BlogPostController.class);
+
 
     public BlogPostController(BlogPostService theBlogPostService){
         blogPostService = theBlogPostService;
@@ -30,13 +36,23 @@ public class BlogPostController {
     }
 
     @GetMapping("/en/posts")
-    public String listPosts(Model theModel){
+    public String listPostsEn(Model theModel){
 
-        List<BlogPost> blogPosts = blogPostService.findAll();
+        List<BlogPost> blogPosts = blogPostService.findAllEn();
+
         theModel.addAttribute("blogPosts", blogPosts);
         return "en_blogPosts.html";
     }
 
+
+    @GetMapping("/pl/posts")
+    public String listPostsPl(Model theModel){
+
+        List<BlogPost> blogPosts = blogPostService.findAllPl();
+
+        theModel.addAttribute("blogPosts", blogPosts);
+        return "en_blogPosts.html";
+    }
 
 
 

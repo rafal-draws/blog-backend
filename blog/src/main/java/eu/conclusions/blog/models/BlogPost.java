@@ -24,15 +24,18 @@ public class BlogPost {
     @Column
     private String content;
 
-
     @Column
     private String date;
 
-    public BlogPost(String title, String content){
+    @Column
+    String language;
+
+    public BlogPost(String title, String content, String language){
         this.title = title;
         this.content = content;
         this.slug = title.toLowerCase().replace(" ", "-");
         this.date = String.valueOf(LocalDateTime.now());
+        this.language = language;
     }
 
 }

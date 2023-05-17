@@ -18,10 +18,19 @@ public class BlogPostServiceImpl implements BlogPostService{
         this.blogPostRepository = blogPostRepository;
     }
 
+    @Override
+    public List<BlogPost> findAll(){
+        return blogPostRepository.findAll();
+    }
 
     @Override
-    public List<BlogPost> findAll() {
-        return blogPostRepository.findAll();
+    public List<BlogPost> findAllEn() {
+        return blogPostRepository.findByLanguage("en");
+    }
+
+    @Override
+    public List<BlogPost> findAllPl() {
+        return blogPostRepository.findByLanguage("pl");
     }
 
     public BlogPost findById(Long id){

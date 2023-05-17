@@ -1,30 +1,51 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://thymeleaf.org">
-
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conclusions</title>
+    <link rel="stylesheet" th:href="@{/css/fonts.css}" />
     <link rel="stylesheet" th:href="@{/css/main.css}" />
 </head>
-
 <body>
 
-<p th:text="'Time on server is' + ${theDate}" />
+<nav class="navigation">
 
-<h3>posts:</h3>
+    <a class="logo" href="/en/">conclusions</a>
 
-<div class="posts">
-    <div th:each="tempBlogPost : ${blogPosts}">
-        <div th:text="${tempBlogPost.title}" />
-        <div th:text="${tempBlogPost.content}">
+        <ul class="nav-list">
+            <li>
+                <a class="nav-item" href="/en/">
+                    Homepage
+                </a>
+            </li>
+            <li>
+                <a class="nav-item" href="mailto: rafal.draws@conclusions.eu">Contact</a>
+            </li>
+            <li>
+                <a class="nav-item" href="https://github.com/rafal-draws" target="_blank">GitHub</a>
+            </li>
+
+
+        </ul>
+
+        <div class="language-switch-panel">
+            <button class="language-switch-button" onclick="location.href = '/pl';">
+                PL 🇵🇱
+            </button>
         </div>
-
-
-
+</nav>
+<div class="posts">
+    <div th:each="tempBlogPost : ${blogPosts}" class="post">
+        <div class="post-title" th:text="${tempBlogPost.title}"></div>
+        <div class="post-content" th:text="${#strings.abbreviate(tempBlogPost.content, 100)}"></div>
+        <a th:href="@{'/' + ${tempBlogPost.id}}" class="post-read-more">Read More</a>
     </div>
-
-
 </div>
 
-</body>
+<footer>
+    Conclusions &copy; Rafał Draws, 2023 <span class="copymark">&#169;</span>
+</footer>
 
+</body>
 </html>

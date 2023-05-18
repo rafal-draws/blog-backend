@@ -46,9 +46,23 @@ public class BlogPostServiceImpl implements BlogPostService{
         return blogPost;
     }
 
+    public BlogPost findBySlug(String slug){
+        Optional<BlogPost> result = blogPostRepository.findBySlug(slug);
+
+        BlogPost blogPost = null;
+
+        if (result.isPresent()) {
+            blogPost = result.get();
+        } else {
+            throw new RuntimeException("didn't find the blog post for slug " + slug);
+        }
+        return blogPost;
+    }
+
     @Override
-    public void save(BlogPost blogPost){
+    public BlogPost save(BlogPost blogPost){
         blogPostRepository.save(blogPost);
+        return blogPost;
     }
 
     @Override

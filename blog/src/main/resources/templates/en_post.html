@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conclusions</title>
+    <link rel="stylesheet" th:href="@{/css/fonts.css}" />
+    <link rel="stylesheet" th:href="@{/css/main.css}" />
+</head>
+<body>
+
+<nav class="navigation">
+
+    <a class="logo" href="/en/">conclusions</a>
+
+    <ul class="nav-list">
+        <li>
+            <a class="nav-item" href="/en/">
+                Homepage
+            </a>
+        </li>
+        <li>
+            <a class="nav-item" href="mailto: rafal.draws@conclusions.eu">Contact</a>
+        </li>
+        <li>
+            <a class="nav-item" href="https://github.com/rafal-draws" target="_blank">GitHub</a>
+        </li>
+
+
+    </ul>
+
+    <div class="language-switch-panel">
+        <button class="language-switch-button" onclick="location.href = '/pl';">
+            PL 🇵🇱
+        </button>
+    </div>
+</nav>
+<div class="single-post">
+    <h1 class="single-post-title" th:text="${blogPost.title}"></h1>
+    <div class="single-post-content" th:text="${blogPost.content}"></div>
+    <div class="single-post-date" th:text="${blogPost.date}"></div>
+    <a class="back-link" href="/posts">Back to Posts</a>
+</div>
+
+<footer>
+    Conclusions &copy; Rafał Draws, 2023 <span class="copymark">&#169;</span>
+</footer>
+
+</body>
+</html>

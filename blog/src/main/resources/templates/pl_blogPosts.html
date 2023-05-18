@@ -13,33 +13,34 @@
 
     <a class="logo" href="/en/">conclusions</a>
 
-        <ul class="nav-list">
-            <li>
-                <a class="nav-item" href="/en/">
-                    Homepage
-                </a>
-            </li>
-            <li>
-                <a class="nav-item" href="mailto: rafal.draws@conclusions.eu">Contact</a>
-            </li>
-            <li>
-                <a class="nav-item" href="https://github.com/rafal-draws" target="_blank">GitHub</a>
-            </li>
+    <ul class="nav-list">
+        <li>
+            <a class="nav-item" href="/en/">
+                Strona główna
+            </a>
+        </li>
+        <li>
+            <a class="nav-item" href="mailto: rafal.draws@conclusions.eu">Kontakt</a>
+        </li>
+        <li>
+            <a class="nav-item" href="https://github.com/rafal-draws" target="_blank">GitHub</a>
+        </li>
 
 
-        </ul>
+    </ul>
 
-        <div class="language-switch-panel">
-            <button class="language-switch-button" onclick="location.href = '/pl';">
-                PL
-            </button>
-        </div>
+    <div class="language-switch-panel">
+        <button class="language-switch-button" onclick="location.href = '/en';">
+            EN
+        </button>
+    </div>
 </nav>
 <div class="posts">
     <div th:each="tempBlogPost : ${blogPosts}" class="post">
         <div class="post-title" th:text="${tempBlogPost.title}"></div>
         <div class="post-content" th:text="${#strings.abbreviate(tempBlogPost.content, 100)}"></div>
-        <a th:href="@{'/en/posts/' + ${tempBlogPost.slug}}" class="post-read-more">Read More</a>
+        <div class="post-date" th:text="${tempBlogPost.date}"></div>
+        <a th:href="@{'/pl/posts/' + ${tempBlogPost.slug}}" class="post-read-more">Read More</a>
     </div>
 </div>
 

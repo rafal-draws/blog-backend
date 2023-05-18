@@ -16,7 +16,9 @@ public interface BlogPostService {
 
     BlogPost findById(Long id);
 
-    void save(BlogPost blogPost);
+    BlogPost findBySlug(String slug);
+
+    BlogPost save(BlogPost blogPost);
 
     void deleteById(Long theId);
 

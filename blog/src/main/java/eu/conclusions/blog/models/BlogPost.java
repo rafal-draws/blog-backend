@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
 
 @Entity
@@ -15,26 +16,26 @@ public class BlogPost {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
+    @Column(name = "title")
     private String title;
 
-    @Column
+    @Column(name = "slug")
     private String slug;
     @Lob
-    @Column
+    @Column(name = "content")
     private String content;
 
-    @Column
-    private String date;
+    @Column(name = "date", columnDefinition = "timestamp")
+    private Instant date;
 
-    @Column
-    String language;
+    @Column(name = "language")
+    private String language;
 
     public BlogPost(String title, String content, String language){
         this.title = title;
         this.content = content;
         this.slug = title.toLowerCase().replace(" ", "-");
-        this.date = String.valueOf(LocalDateTime.now());
+        this.date = Instant.now();
         this.language = language;
     }
 

@@ -7,17 +7,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-
+import java.util.Collections;
 import java.util.List;
 
 @Controller
 public class BlogPostController {
 
-    private BlogPostService blogPostService;
-    private static final Logger logger = LoggerFactory.getLogger(BlogPostController.class);
+    private final BlogPostService blogPostService;
 
     public BlogPostController(BlogPostService theBlogPostService){
         blogPostService = theBlogPostService;
@@ -25,14 +21,17 @@ public class BlogPostController {
 
     @GetMapping("/")
     public String index() {
-        return "redirect:/en/posts";
+        return "redirect:/en";
     }
 
-    @GetMapping("/{lang}")
-    public String redirectToLanguage(@PathVariable String lang) {
-        if (lang.equals("en"))
+    @GetMapping("/pl")
+    public String indexPl() {
+        return "redirect:/pl/posts";
+    }
+
+    @GetMapping("/en")
+    public String indexEn() {
         return "redirect:/en/posts";
-        else return "redirect:/pl/posts";
     }
 
     @GetMapping("/en/posts")
@@ -40,6 +39,8 @@ public class BlogPostController {
     public String listPostsEn(Model theModel){
 
         List<BlogPost> blogPosts = blogPostService.findAllEn();
+
+        Collections.reverse(blogPosts);
 
         theModel.addAttribute("blogPosts", blogPosts);
         return "en_blogPosts.html";
@@ -50,6 +51,8 @@ public class BlogPostController {
     public String listPostsPl(Model theModel){
 
         List<BlogPost> blogPosts = blogPostService.findAllPl();
+
+        Collections.reverse(blogPosts);
 
         theModel.addAttribute("blogPosts", blogPosts);
         return "pl_blogPosts.html";

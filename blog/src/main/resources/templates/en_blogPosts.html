@@ -11,19 +11,20 @@
 
 <nav class="navigation">
 
-    <a class="logo" href="/en/">conclusions</a>
+    <a class="logo" href="/en">conclusions</a>
 
         <ul class="nav-list">
             <li>
-                <a class="nav-item" href="/en/">
+                <button class="nav-item" onclick="location.href = '/en''">
                     Homepage
-                </a>
+                </button>
             </li>
             <li>
-                <a class="nav-item" href="mailto: rafal.draws@conclusions.eu">Contact</a>
+                <button class="nav-item" onclick="location.href='mailto:rafal.draws@conclusions.eu';">Contact</button>
+
             </li>
             <li>
-                <a class="nav-item" href="https://github.com/rafal-draws" target="_blank">GitHub</a>
+                <button class="nav-item" onclick="window.open('https://github.com/rafal-draws', '_blank');">GitHub</button>
             </li>
 
 
@@ -38,7 +39,7 @@
 <div class="posts">
     <div th:each="tempBlogPost : ${blogPosts}" class="post">
         <div class="post-title" th:text="${tempBlogPost.title}"></div>
-        <div class="post-content" th:text="${#strings.abbreviate(tempBlogPost.content, 100)}"></div>
+        <div class="post-content" th:utext="${#strings.abbreviate(tempBlogPost.content, 100)}"></div>
         <a th:href="@{'/en/posts/' + ${tempBlogPost.slug}}" class="post-read-more">Read More</a>
     </div>
 </div>

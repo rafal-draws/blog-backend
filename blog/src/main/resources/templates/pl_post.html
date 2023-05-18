@@ -4,18 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conclusions</title>
-    <link rel="stylesheet" th:href="@{/css/fonts.css}" />
-    <link rel="stylesheet" th:href="@{/css/main.css}" />
+    <link rel="stylesheet" th:href="@{/css/fonts.css}"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+    <link rel="stylesheet" th:href="@{/css/prism.css}">
+    <script th:src="@{/js/prism.js}"></script>
+
+    <script>
+
+    document.addEventListener('DOMContentLoaded', function() {
+        Prism.highlightAll();
+    });
+    </script>
 </head>
 <body>
 
 <nav class="navigation">
 
-    <a class="logo" href="/en/">conclusions</a>
+    <a class="logo" href="/pl">conclusions</a>
 
     <ul class="nav-list">
         <li>
-            <a class="nav-item" href="/en/">
+            <a class="nav-item" href="/pl">
                 Strona główna
             </a>
         </li>
@@ -30,16 +39,16 @@
     </ul>
 
     <div class="language-switch-panel">
-        <button class="language-switch-button" onclick="location.href = '/pl';">
-            PL 🇵🇱
+        <button class="language-switch-button" onclick="location.href = '/en';">
+            EN
         </button>
     </div>
 </nav>
 <div class="single-post">
     <h1 class="single-post-title" th:text="${blogPost.title}"></h1>
-    <div class="single-post-content" th:text="${blogPost.content}"></div>
+    <div class="single-post-content" th:utext="${blogPost.content}"></div>
     <div class="single-post-date" th:text="${blogPost.date}"></div>
-    <a class="back-link" href="/posts">Back to Posts</a>
+    <a class="back-link" href="/pl/posts">Back to Posts</a>
 </div>
 
 <footer>

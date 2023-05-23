@@ -6,6 +6,8 @@
     <title>Conclusions</title>
     <link rel="stylesheet" th:href="@{/css/fonts.css}" />
     <link rel="stylesheet" th:href="@{/css/main.css}" />
+    <link rel="icon" type="image/png" th:href="@{/img/logoconclusions.png}">
+    <link rel="icon" type="image/x-icon" th:href="@{/img/logoconclusions32px.png}">
 </head>
 <body>
 
@@ -15,12 +17,12 @@
 
         <ul class="nav-list">
             <li>
-                <button class="nav-item" onclick="location.href = '/en''">
+                <button class="nav-item" onclick="location.href = '/en'">
                     Homepage
                 </button>
             </li>
             <li>
-                <button class="nav-item" onclick="location.href='mailto:rafal.draws@conclusions.eu';">Contact</button>
+                <button class="nav-item" onclick="location.href='/en/contact';">Contact</button>
 
             </li>
             <li>
@@ -40,12 +42,13 @@
     <div th:each="tempBlogPost : ${blogPosts}" class="post">
         <div class="post-title" th:text="${tempBlogPost.title}"></div>
         <div class="post-content" th:utext="${#strings.abbreviate(tempBlogPost.content, 100)}"></div>
+        <div class="post-date" th:text="${#temporals.format(tempBlogPost.date, 'yyyy-MM-dd HH:mm')}"></div>
         <a th:href="@{'/en/posts/' + ${tempBlogPost.slug}}" class="post-read-more">Read More</a>
     </div>
 </div>
 
 <footer>
-    Conclusions &copy; Rafał Draws, 2023 <span class="copymark">&#169;</span>
+    Conclusions <span class="copymark">&#169;</span> Rafał Draws, 2023
 </footer>
 
 </body>

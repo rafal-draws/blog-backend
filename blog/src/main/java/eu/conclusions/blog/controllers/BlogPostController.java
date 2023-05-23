@@ -19,6 +19,8 @@ public class BlogPostController {
         blogPostService = theBlogPostService;
     }
 
+
+
     @GetMapping("/")
     public String index() {
         return "redirect:/en";
@@ -77,6 +79,18 @@ public class BlogPostController {
 
         theModel.addAttribute("blogPost", blogPost);
         return "pl_post.html";
+    }
+
+    @GetMapping("/pl/contact")
+    public String showContactPl(Model theModel){
+
+        return "pl_contact.html";
+    }
+
+    @GetMapping("/en/contact")
+    public String showContactEn(Model theModel){
+
+        return "en_contact.html";
     }
 
 

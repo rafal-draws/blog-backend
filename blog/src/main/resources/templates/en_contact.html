@@ -4,26 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conclusions</title>
-    <link rel="stylesheet" th:href="@{/css/fonts.css}" />
-    <link rel="stylesheet" th:href="@{/css/main.css}" />
+    <link rel="stylesheet" th:href="@{/css/fonts.css}"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+    <link rel="stylesheet" th:href="@{/css/prism.css}">
+
     <link rel="icon" type="image/png" th:href="@{/img/logoconclusions.png}">
     <link rel="icon" type="image/x-icon" th:href="@{/img/logoconclusions32px.png}">
+    <script th:src="@{/js/prism.js}"></script>
 
+    <script>
+
+    document.addEventListener('DOMContentLoaded', function() {
+        Prism.highlightAll();
+    });
+    </script>
 </head>
 <body>
 
 <nav class="navigation">
 
-    <a class="logo" href="/pl">conclusions</a>
+    <a class="logo" href="/en">conclusions</a>
 
     <ul class="nav-list">
         <li>
-            <button class="nav-item" onclick="location.href = '/pl'">
-                Strona Główna
+            <button class="nav-item" onclick="location.href = '/en'">
+                Homepage
             </button>
         </li>
         <li>
-            <button class="nav-item" onclick="location.href='/pl/contact';">Kontakt</button>
+            <button class="nav-item" onclick="location.href='/en/contact';">Contact</button>
 
         </li>
         <li>
@@ -39,13 +48,10 @@
         </button>
     </div>
 </nav>
-<div class="posts">
-    <div th:each="tempBlogPost : ${blogPosts}" class="post">
-        <div class="post-title" th:text="${tempBlogPost.title}"></div>
-        <div class="post-content" th:utext="${#strings.abbreviate(tempBlogPost.content, 100)}"></div>
-        <div class="post-date" th:text="${#temporals.format(tempBlogPost.date, 'yyyy-MM-dd HH:mm')}"></div>
-        <a th:href="@{'/pl/posts/' + ${tempBlogPost.slug}}" class="post-read-more">Czytaj Dalej</a>
-    </div>
+<div class="single-post">
+    <h1 class="single-post-title">Skontaktuj się ze mną</h1>
+    <div class="single-post-content" >Uderz do mnie na linkedin(link tutaj), albo drogą mailową na rafal.draws@conclusions.eu.</div>
+    <a class="back-link" href="/pl/posts">Powrót do postów</a>
 </div>
 
 <footer>

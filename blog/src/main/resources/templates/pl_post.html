@@ -7,6 +7,8 @@
     <link rel="stylesheet" th:href="@{/css/fonts.css}"/>
     <link rel="stylesheet" th:href="@{/css/main.css}"/>
     <link rel="stylesheet" th:href="@{/css/prism.css}">
+    <link rel="icon" type="image/png" th:href="@{/img/logoconclusions.png}">
+    <link rel="icon" type="image/x-icon" th:href="@{/img/logoconclusions32px.png}">
     <script th:src="@{/js/prism.js}"></script>
 
     <script>
@@ -24,15 +26,16 @@
 
     <ul class="nav-list">
         <li>
-            <a class="nav-item" href="/pl">
-                Strona główna
-            </a>
+            <button class="nav-item" onclick="location.href = '/pl'">
+                Strona Główna
+            </button>
         </li>
         <li>
-            <a class="nav-item" href="mailto: rafal.draws@conclusions.eu">Kontakt</a>
+            <button class="nav-item" onclick="location.href='/pl/contact';">Kontakt</button>
+
         </li>
         <li>
-            <a class="nav-item" href="https://github.com/rafal-draws" target="_blank">GitHub</a>
+            <button class="nav-item" onclick="window.open('https://github.com/rafal-draws', '_blank');">GitHub</button>
         </li>
 
 
@@ -47,12 +50,12 @@
 <div class="single-post">
     <h1 class="single-post-title" th:text="${blogPost.title}"></h1>
     <div class="single-post-content" th:utext="${blogPost.content}"></div>
-    <div class="single-post-date" th:text="${blogPost.date}"></div>
-    <a class="back-link" href="/pl/posts">Back to Posts</a>
+    <div class="single-post-date" th:text="${#temporals.format(blogPost.date, 'yyyy-MM-dd HH:mm')}"></div>
+    <a class="back-link" href="/pl/posts">Powrót</a>
 </div>
 
 <footer>
-    Conclusions &copy; Rafał Draws, 2023 <span class="copymark">&#169;</span>
+    Conclusions <span class="copymark">&#169;</span> Rafał Draws, 2023
 </footer>
 
 </body>

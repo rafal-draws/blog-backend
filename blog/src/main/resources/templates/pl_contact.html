@@ -7,20 +7,16 @@
     <link rel="stylesheet" th:href="@{/css/fonts.css}"/>
     <link rel="stylesheet" th:href="@{/css/main.css}"/>
     <link rel="stylesheet" th:href="@{/css/prism.css}">
-
-    <link rel="icon" type="image/png" th:href="@{/img/logoconclusions.png}">
-    <link rel="icon" type="image/x-icon" th:href="@{/img/logoconclusions32px.png}">
     <script th:src="@{/js/prism.js}"></script>
 
     <script>
+
     document.addEventListener('DOMContentLoaded', function() {
         Prism.highlightAll();
     });
-
     </script>
 </head>
 <body>
-
 <nav class="navigation">
 
     <a class="logo" href="/en">conclusions</a>
@@ -28,31 +24,35 @@
     <ul class="nav-list">
         <li>
             <button class="nav-item" onclick="location.href = '/en'">
-                Homepage
+                Strona Główna
             </button>
         </li>
         <li>
-            <button class="nav-item" onclick="location.href='/en/contact';">Contact</button>
+            <button class="nav-item" onclick="location.href='/en/contact';">Kontakt</button>
 
         </li>
         <li>
             <button class="nav-item" onclick="window.open('https://github.com/rafal-draws', '_blank');">GitHub</button>
         </li>
-
-
     </ul>
 
     <div class="language-switch-panel">
-        <button class="language-switch-button" onclick="location.href = '/pl';">
-            PL
+        <button class="language-switch-button" onclick="location.href = '/en';">
+            EN
         </button>
     </div>
+
 </nav>
-<div class="single-post">
-    <h1 class="single-post-title" th:text="${blogPost.title}"></h1>
-    <div class="single-post-content" th:utext="${blogPost.content}"></div>
-    <div class="single-post-date" th:text="${#temporals.format(blogPost.date, 'yyyy-MM-dd HH:mm')}"></div>
-    <a class="back-link" href="/en/posts">Back to Posts</a>
+
+
+<div class="contact-post">
+    <h1 class="contact-title">Skontaktuj się ze mną</h1>
+    <div class="contact-content">Skontaktuj się ze mną poprzez LinkedIn lub mailowo na rafal.draws@conclusions.eu.</div>
+    <div class="contact-links">
+        <a class="linkedin-link" href="https://www.linkedin.com/">LinkedIn</a>
+        <a class="email-link" href="mailto:rafal.draws@conclusions.eu">Email</a>
+    </div>
+    <a class="back-link" href="/pl/posts">Powrót do postów</a>
 </div>
 
 <footer>

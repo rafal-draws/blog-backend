@@ -5,6 +5,7 @@ import eu.conclusions.blog.models.BlogPost;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
 
@@ -61,6 +62,10 @@ public class BlogPostServiceImpl implements BlogPostService{
 
     @Override
     public BlogPost save(BlogPost blogPost){
+        blogPost.setId(0L);
+        blogPost.setSlug(blogPost.getTitle().toLowerCase().replaceAll("[^a-zA-Z0-9\\s]", "").replaceAll("\\s+", "-"));
+        blogPost.setDate(Instant.now());
+
         blogPostRepository.save(blogPost);
         return blogPost;
     }

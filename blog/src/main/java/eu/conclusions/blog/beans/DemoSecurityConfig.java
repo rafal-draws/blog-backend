@@ -21,6 +21,7 @@ public class DemoSecurityConfig {
                         .requestMatchers(HttpMethod.GET, "/api/**").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.PUT, "/api/**").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.DELETE, "/api/**").hasRole("ADMIN")
+                        .requestMatchers("/error").permitAll()
                         .anyRequest().permitAll()
         );
 

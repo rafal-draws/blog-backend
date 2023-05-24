@@ -10,20 +10,15 @@
     <link rel="icon" type="image/png" th:href="@{/img/logoconclusions.png}">
     <link rel="icon" type="image/x-icon" th:href="@{/img/logoconclusions32px.png}">
     <script th:src="@{/js/prism.js}"></script>
-
     <script>
-
     document.addEventListener('DOMContentLoaded', function() {
         Prism.highlightAll();
     });
     </script>
 </head>
 <body>
-
 <nav class="navigation">
-
     <a class="logo" href="/pl">conclusions</a>
-
     <ul class="nav-list">
         <li>
             <button class="nav-item" onclick="location.href = '/pl'">
@@ -32,15 +27,11 @@
         </li>
         <li>
             <button class="nav-item" onclick="location.href='/pl/contact';">Kontakt</button>
-
         </li>
         <li>
             <button class="nav-item" onclick="window.open('https://github.com/rafal-draws', '_blank');">GitHub</button>
         </li>
-
-
     </ul>
-
     <div class="language-switch-panel">
         <button class="language-switch-button" onclick="location.href = '/en';">
             EN
@@ -51,12 +42,11 @@
     <h1 class="single-post-title" th:text="${blogPost.title}"></h1>
     <div class="single-post-content" th:utext="${blogPost.content}"></div>
     <div class="single-post-date" th:text="${#temporals.format(blogPost.date, 'yyyy-MM-dd HH:mm')}"></div>
+    <div class="single-post-author">Rafał Draws</div>
     <a class="back-link" href="/pl/posts">Powrót</a>
 </div>
-
 <footer>
     Conclusions <span class="copymark">&#169;</span> Rafał Draws, 2023
 </footer>
-
 </body>
 </html>

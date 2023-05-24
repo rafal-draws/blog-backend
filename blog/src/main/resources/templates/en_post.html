@@ -52,6 +52,7 @@
     <h1 class="single-post-title" th:text="${blogPost.title}"></h1>
     <div class="single-post-content" th:utext="${blogPost.content}"></div>
     <div class="single-post-date" th:text="${#temporals.format(blogPost.date, 'yyyy-MM-dd HH:mm')}"></div>
+    <div class="single-post-author">Rafał Draws</div>
     <a class="back-link" href="/en/posts">Back to Posts</a>
 </div>
 
